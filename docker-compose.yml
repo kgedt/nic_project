@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: roomtime-redis
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"       # даст вам Redis на localhost:6379
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 2s
+      retries: 10
+    restart: unless-stopped
+
+
+volumes:
+  redisdata:
