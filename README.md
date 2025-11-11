@@ -1,7 +1,5 @@
 # DOCKER-COMPOSE COMMANDS
 
-// поднимаем редис
-docker compose up -d redis
+docker compose up -d redis # поднимаем redis
 
-// проверяем
-docker exec -it roomtime-redis redis-cli ping
+docker exec -it roomtime-redis redis-cli ping # проверяем redis
